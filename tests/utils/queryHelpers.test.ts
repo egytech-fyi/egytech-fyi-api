@@ -6,13 +6,19 @@ describe('queryHelpers', () => {
     it('should append the correct query for a valid parameter', () => {
       const conditions: string[] = [];
       appendQuery(conditions, 'backend', 'Title', maps.title);
-      expect(conditions).toContain('Title = "Backend Engineer"');
+      expect(conditions).toContain('Title IN ("Backend Engineer")');
     });
 
     it('should not append a query for an invalid parameter', () => {
       const conditions: string[] = [];
       appendQuery(conditions, 'nonexistent', 'Title', maps.title);
       expect(conditions).toHaveLength(0);
+    });
+
+    it('should append the correct query for an array of parameters', () => {
+      const conditions: string[] = [];
+      appendQuery(conditions, ['backend', 'frontend'], 'Title', maps.title);
+      expect(conditions).toContain('Title IN ("Backend Engineer", "Frontend Engineer\")');
     });
   });
 

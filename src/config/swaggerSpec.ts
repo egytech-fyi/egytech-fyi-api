@@ -19,31 +19,33 @@ export const swaggerSpec: string = `
               required: false
               description: Filter participants by their job title.
               schema:
-                type: string
-                enum:
-                  - backend
-                  - frontend
-                  - ai_automation
-                  - crm
-                  - data_analytics
-                  - data_engineer
-                  - data_scientist
-                  - devops_sre_platform
-                  - embedded
-                  - engineering_manager
-                  - executive
-                  - fullstack
-                  - hardware
-                  - mobile
-                  - product_manager
-                  - product_owner
-                  - testing
-                  - research
-                  - scrum
-                  - security
-                  - system_arch
-                  - technical_support
-                  - ui_ux
+                type: array
+                items:
+                  type: string
+                  enum:
+                    - backend
+                    - frontend
+                    - ai_automation
+                    - crm
+                    - data_analytics
+                    - data_engineer
+                    - data_scientist
+                    - devops_sre_platform
+                    - embedded
+                    - engineering_manager
+                    - executive
+                    - fullstack
+                    - hardware
+                    - mobile
+                    - product_manager
+                    - product_owner
+                    - testing
+                    - research
+                    - scrum
+                    - security
+                    - system_arch
+                    - technical_support
+                    - ui_ux
             - name: level
               in: query
               required: false
@@ -171,164 +173,167 @@ export const swaggerSpec: string = `
           description: Returns compensation statistics in bucketed ranges based on optional filters like title, level, gender, and more.
           operationId: getStats
           parameters:
-          - name: title
-            in: query
-            required: false
-            description: Filter participants by their job title.
-            schema:
-              type: string
-              enum:
-                - backend
-                - frontend
-                - ai_automation
-                - crm
-                - data_analytics
-                - data_engineer
-                - data_scientist
-                - devops_sre_platform
-                - embedded
-                - engineering_manager
-                - executive
-                - fullstack
-                - hardware
-                - mobile
-                - product_manager
-                - product_owner
-                - testing
-                - research
-                - scrum
-                - security
-                - system_arch
-                - technical_support
-                - ui_ux
-          - name: level
-            in: query
-            required: false
-            description: Filter participants by their career level.
-            schema:
-              type: string
-              enum:
-                - c_level
-                - director
-                - group_product_manager
-                - intern
-                - junior
-                - manager
-                - mid_level
-                - principal
-                - senior
-                - senior_manager
-                - senior_principal
-                - senior_staff
-                - staff
-                - team_lead
-                - vp
-          - name: yoe_from_included
-            in: query
-            required: false
-            description: Minimum years of experience included in the query.
-            schema:
-              type: integer
-              minimum: 0
-              maximum: 20
-          - name: yoe_to_excluded
-            in: query
-            required: false
-            description: Maximum years of experience to be included in the query (exclusive; will only include small yoe, but not this one).
-            schema:
-              type: integer
-              minimum: 1
-              maximum: 26
-          - name: gender
-            in: query
-            required: false
-            description: Filter participants by gender. Allowed values are 'male' and 'female'.
-            schema:
-              type: string
-              enum:
-                - male
-                - female
-          - name: cs_degree
-            in: query
-            required: false
-            description: Filter participants based on whether they have a CS related degree.
-            schema:
-              type: string
-              enum:
-                - yes
-                - no
-          - name: business_market
-            in: query
-            required: false
-            description: Filter participants by the market scope of their company.
-            schema:
-              type: string
-              enum:
-                - global
-                - regional
-                - local
-          - name: business_size
-            in: query
-            required: false
-            description: Filter participants by the size of their company.
-            schema:
-              type: string
-              enum:
-                - large
-                - medium
-                - small
-          - name: business_focus
-            in: query
-            required: false
-            description: Filter participants by the primary focus of their company.
-            schema:
-              type: string
-              enum:
-                - product
-                - software_house
-          - name: business_line
-            in: query
-            required: false
-            description: Filter participants by the business line their company operates in.
-            schema:
-              type: string
-              enum:
-                - b2b
-                - b2c
-                - both
-          - name: include_relocated
-            in: query
-            required: false
-            description: Include participants who have relocated in the response.
-            schema:
-              type: boolean
-          - name: include_remote_abroad
-            in: query
-            required: false
-            description: Include participants working remotely for companies abroad (e.g Europe, US).
-            schema:
-              type: boolean
-          - name: programming_language
-            in: query
-            required: false
-            description: Filter participants by programming language.
-            schema:
-              type: string
-              enum:
-                - java_script
-                - type_script
-                - python
-                - c_sharp
-                - java
-                - php
-                - c_cplusplus
-                - kotlin
-                - swift
-                - dart
-                - go
-                - r
-                - scala
-                - rust
+            - name: title
+              in: query
+              required: false
+              description: Filter participants by their job title.
+              schema:
+                type: array
+                items:
+                  type: string
+                  example: ["backend", "frontend"]
+                  enum:
+                    - backend
+                    - frontend
+                    - ai_automation
+                    - crm
+                    - data_analytics
+                    - data_engineer
+                    - data_scientist
+                    - devops_sre_platform
+                    - embedded
+                    - engineering_manager
+                    - executive
+                    - fullstack
+                    - hardware
+                    - mobile
+                    - product_manager
+                    - product_owner
+                    - testing
+                    - research
+                    - scrum
+                    - security
+                    - system_arch
+                    - technical_support
+                    - ui_ux
+            - name: level
+              in: query
+              required: false
+              description: Filter participants by their career level.
+              schema:
+                type: string
+                enum:
+                  - c_level
+                  - director
+                  - group_product_manager
+                  - intern
+                  - junior
+                  - manager
+                  - mid_level
+                  - principal
+                  - senior
+                  - senior_manager
+                  - senior_principal
+                  - senior_staff
+                  - staff
+                  - team_lead
+                  - vp
+            - name: yoe_from_included
+              in: query
+              required: false
+              description: Minimum years of experience included in the query.
+              schema:
+                type: integer
+                minimum: 0
+                maximum: 20
+            - name: yoe_to_excluded
+              in: query
+              required: false
+              description: Maximum years of experience to be included in the query (exclusive; will only include small yoe, but not this one).
+              schema:
+                type: integer
+                minimum: 1
+                maximum: 26
+            - name: gender
+              in: query
+              required: false
+              description: Filter participants by gender. Allowed values are 'male' and 'female'.
+              schema:
+                type: string
+                enum:
+                  - male
+                  - female
+            - name: cs_degree
+              in: query
+              required: false
+              description: Filter participants based on whether they have a CS related degree.
+              schema:
+                type: string
+                enum:
+                  - yes
+                  - no
+            - name: business_market
+              in: query
+              required: false
+              description: Filter participants by the market scope of their company.
+              schema:
+                type: string
+                enum:
+                  - global
+                  - regional
+                  - local
+            - name: business_size
+              in: query
+              required: false
+              description: Filter participants by the size of their company.
+              schema:
+                type: string
+                enum:
+                  - large
+                  - medium
+                  - small
+            - name: business_focus
+              in: query
+              required: false
+              description: Filter participants by the primary focus of their company.
+              schema:
+                type: string
+                enum:
+                  - product
+                  - software_house
+            - name: business_line
+              in: query
+              required: false
+              description: Filter participants by the business line their company operates in.
+              schema:
+                type: string
+                enum:
+                  - b2b
+                  - b2c
+                  - both
+            - name: include_relocated
+              in: query
+              required: false
+              description: Include participants who have relocated in the response.
+              schema:
+                type: boolean
+            - name: include_remote_abroad
+              in: query
+              required: false
+              description: Include participants working remotely for companies abroad (e.g Europe, US).
+              schema:
+                type: boolean
+            - name: programming_language
+              in: query
+              required: false
+              description: Filter participants by programming language.
+              schema:
+                type: string
+                enum:
+                  - java_script
+                  - type_script
+                  - python
+                  - c_sharp
+                  - java
+                  - php
+                  - c_cplusplus
+                  - kotlin
+                  - swift
+                  - dart
+                  - go
+                  - r
+                  - scala
+                  - rust
           responses:
             '200':
               description: An JSON objects of compensation overall statistics and count of participants within each compensation range.
@@ -370,7 +375,6 @@ export const swaggerSpec: string = `
               description: Bad request when query parameters are not as expected.
             '404':
               description: No data found matching the criteria.
-          
     
     components:
       schemas:

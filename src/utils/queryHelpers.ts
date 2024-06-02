@@ -1,8 +1,9 @@
-export const appendQuery = (conditions: string[], param: string | undefined, column: string, map: Record<string, string>) => {
+export const appendQuery = (conditions: string[], param: string | string[] | undefined, column: string, map: Record<string, string>) => {
   if (param) {
-    const filter = map[param];
-    if (filter) {
-      conditions.push(`${column} = "${filter}"`);
+    const params = Array.isArray(param) ? param : [param];
+    const filters = params.map(p => map[p]).filter(Boolean);
+    if (filters.length > 0) {
+      conditions.push(`${column} IN (${filters.map(filter => `"${filter}"`).join(', ')})`);
     }
   }
 };

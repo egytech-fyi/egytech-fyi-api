@@ -7,7 +7,12 @@ const statsHandler = async (c: Context<{ Bindings: Bindings }>) => {
   const workSettings = ['Office', 'Hybrid', 'Remote/Egypt'];
   const conditions: string[] = [];
 
-  appendQuery(conditions, c.req.query('title'), 'Title', maps.title);
+    // Use c.req.queries to handle multiple `title` values
+    const titles = c.req.queries('title');
+    if (titles && titles.length > 0) {
+      appendQuery(conditions, titles, 'Title', maps.title);
+    }
+    
   appendQuery(conditions, c.req.query('level'), 'Level', maps.level);
   appendQuery(conditions, c.req.query('gender'), 'Gender', maps.gender);
   appendQuery(conditions, c.req.query('cs_degree'), 'Degree', maps.degree);
@@ -65,6 +70,8 @@ const statsHandler = async (c: Context<{ Bindings: Bindings }>) => {
       GROUP BY bucket
       ORDER BY MIN(TotalCompensationEgp)
     `).all();
+
+    console.log(whereClause)
 
     const percentilesResults = await c.env.DB.prepare(`
       WITH RankedCompensations AS (
