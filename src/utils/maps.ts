@@ -73,7 +73,7 @@ export const maps = {
       type_script: 'TypeScript',
       python: 'Python',
       c_sharp: 'C#',
-      java: 'Java',
+      java: 'JPava',
       php: 'PHP',
       c_cplusplus: 'C/C++',
       kotlin: 'Kotlin',
