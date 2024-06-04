@@ -4,9 +4,6 @@ import { maps } from '../utils/maps';
 import { Bindings } from '../types/bindings';
 
 const participantsHandler = async (c: Context<{ Bindings: Bindings }>) => {
-  if (true) {
-    return c.json('Will be supported after 20th of May, 2024');
-  }
 
   const workSettings = ['Office', 'Hybrid', 'Remote/Egypt'];
   const conditions: string[] = [];

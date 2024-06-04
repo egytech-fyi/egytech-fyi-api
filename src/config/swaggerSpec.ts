@@ -2,13 +2,13 @@ export const swaggerSpec: string = `
     openapi: 3.0.0
     info:
       title: Egyptian Tech Market Survey API
-      description: In April 2024, we conducted an extensive survey focusing on the technology sector in Egypt, garnering over 1,700 responses. This survey aimed to gather detailed insights into the salaries and technologies prevalent within the local tech market. Following the collection of this data, we undertook a rigorous cleaning process to ensure the highest quality of information, while also removing any personally identifiable information (PII). The cleaned dataset is now accessible through our API, providing valuable data for analysis and decision-making in the tech industry.
+      description: In April 2024, we conducted an extensive survey focusing on the technology sector in Egypt, garnering nearly 2100 responses. This survey aimed to gather detailed insights into the salaries and technologies prevalent within the local tech market. Following the collection of this data, we undertook a rigorous cleaning process to ensure the highest quality of information, while also removing any personally identifiable information (PII). The cleaned dataset is now accessible through our API, providing valuable data for analysis and decision-making in the tech industry.
       version: "1.0.0"
     
     paths:
       /participants:
         get:
-          summary: Retrieves participants' data based on specified filters (NOT YET SUPPORTED).
+          summary: Retrieves participants' data based on specified filters.
           description: >
             Allows clients to query the dataset of survey participants based on various attributes like title, level, gender, degree, and work settings.
             Clients can also filter data to include participants who have relocated or work remotely abroad.
@@ -417,6 +417,9 @@ export const swaggerSpec: string = `
             isEgp:
               type: string
               description: Indicates if the compensation is in Egyptian pounds ('Yes' or 'No').
+            programmingLanguages:
+              type: string
+              description: Programming Languages used by this participants in their day-to-day work.
             netCompensation:
               type: integer
               format: int64
