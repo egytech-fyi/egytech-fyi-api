@@ -71,8 +71,6 @@ const statsHandler = async (c: Context<{ Bindings: Bindings }>) => {
       ORDER BY MIN(TotalCompensationEgp)
     `).all();
 
-    console.log(whereClause)
-
     const percentilesResults = await c.env.DB.prepare(`
       WITH RankedCompensations AS (
         SELECT 
