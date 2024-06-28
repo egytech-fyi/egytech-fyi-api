@@ -1,0 +1,18 @@
+export const REPOS_DATA = [
+    'KL13NT/badeel',
+    'younader/Vesuvius-First-Letters',
+    'younader/Vesuvius-Grandprize-Winner',
+    'saifmohamedsv/use-any-hook',
+    'youssefHosni/Practical-Machine-Learning',
+    'egytech-fyi/egytech-fyi',
+    'live-codes/livecodes',
+    'pannous/hieros',
+    'mohanedy/nile-gift',
+    'abahmed/kwatch',
+    'abahmed/Deer',
+    'logaretm/villus',
+    'medhatdawoud/react-change-highlight',
+    'emad-elsaid/xlog',
+    'logaretm/vee-validate',
+    'mohanedy/swifty-marvel',
+  ];
