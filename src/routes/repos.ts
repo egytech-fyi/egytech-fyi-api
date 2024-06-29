@@ -6,7 +6,7 @@ import { REPOS_DATA } from '../utils/repos';
 
 const reposHandler = async (c: Context<{ Bindings: Bindings }>) => {
   const GITHUB_BASE_URL = 'https://api.github.com/repos/';
-  const GITHUB_TOKEN = c.env.GITHUB_TOKEN;
+  const {GITHUB_TOKEN} = c.env;
 
 
   if (!GITHUB_TOKEN) {
@@ -29,7 +29,7 @@ const reposHandler = async (c: Context<{ Bindings: Bindings }>) => {
       return response.json();
     };
 
-    const allRepoData = await Promise.all(REPOS_DATA.map((repo) => fetchRepoData(repo)));
+    const allRepoData = await Promise.all(REPOS_DATA.map(fetchRepoData));
     const sortedRepos = allRepoData.sort((a,b)=> b.stargazers_count - a.stargazers_count)
     return c.json(sortedRepos); 
 
