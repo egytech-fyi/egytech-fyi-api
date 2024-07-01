@@ -32,12 +32,14 @@ Ensure you have the following installed:
 ### 📦 Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/your-username/tech-scene-api.git
    cd tech-scene-api
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -47,6 +49,7 @@ Ensure you have the following installed:
 ### 🖥️ Running the Server
 
 1. Start the development server with Wrangler:
+
    ```bash
    npm run dev
    # or
@@ -97,11 +100,13 @@ yarn deploy
   - `include_remote_abroad` (string): Include remote abroad (true/false)
 
 - **Example Request:**
+
   ```bash
   curl "http://localhost:8787/participants?title=backend&level=senior"
   ```
 
 - **Example Response:**
+
   ```json
   [
     {
@@ -144,11 +149,13 @@ yarn deploy
   - `include_remote_abroad` (string)
 
 - **Example Request:**
+
   ```bash
   curl "http://localhost:8787/stats?title=backend&level=senior"
   ```
 
 - **Example Response:**
+
   ```json
   {
     "stats": {
@@ -166,14 +173,62 @@ yarn deploy
   }
   ```
 
+### 📊 Top Github Repos Endpoint
+
+- **Endpoint:** `/repos`
+- **Method:** `GET`
+
+- **Example Request:**
+
+  ```bash
+  curl "http://localhost:8787/repos"
+  ```
+
+- **Example Response:**
+
+  ```json
+  [
+      {
+    "id": 64519183,
+    "node_id": "MDEwOlJlcG9zaXRvcnk2NDUxOTE4Mw==",
+    "name": "vee-validate",
+    "full_name": "logaretm/vee-validate",
+    "private": false,
+    "html_url": "https://github.com/logaretm/vee-validate",
+    "description": "✅  Painless Vue forms",
+    "fork": false,
+    "tags_url": "https://api.github.com/repos/logaretm/vee-validate/tags",
+    "created_at": "2016-07-30T01:10:44Z",
+    "updated_at": "2024-06-29T06:38:01Z",
+    "size": 22740,
+    "stargazers_count": 10633,
+    "language": "TypeScript",
+    "forks_count": 1242,
+    "open_issues_count": 74,
+    "topics": [
+      "form",
+      "form-validation",
+      "forms",
+    ],
+    "visibility": "public",
+    "forks": 1242,
+    "open_issues": 74,
+    "watchers": 10633
+    }
+  ]
+
+  ```
+
 ## 🗂️ Project Structure
 
 ```
+
 project-root/
 ├── src/
 │   ├── routes/
 │   │   ├── participants.ts
 │   │   ├── stats.ts
+│   │   ├── repos.ts
 │   │   └── index.ts
 │   ├── utils/
 │   │   ├── queryHelpers.ts
@@ -191,6 +246,7 @@ project-root/
 ├── tsconfig.json
 ├── jest.config.js
 └── README.md
+
 ```
 
 ## 🤝 Contributing

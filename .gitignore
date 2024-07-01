@@ -127,6 +127,7 @@ dist
 .pnp.*
 src/index.ts
 
+.dev.vars
 .wrangler
 *.sql
 
