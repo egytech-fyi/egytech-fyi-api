@@ -4,6 +4,9 @@ export const swaggerSpec: string = `
       title: Egyptian Tech Market Survey API
       description: In April 2024, we conducted an extensive survey focusing on the technology sector in Egypt, garnering nearly 2100 responses. This survey aimed to gather detailed insights into the salaries and technologies prevalent within the local tech market. Following the collection of this data, we undertook a rigorous cleaning process to ensure the highest quality of information, while also removing any personally identifiable information (PII). The cleaned dataset is now accessible through our API, providing valuable data for analysis and decision-making in the tech industry.
       version: "1.0.0"
+
+    servers:
+      - url: https://api.egytech.fyi
     
     paths:
       /participants:
